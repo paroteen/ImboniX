@@ -1,0 +1,11 @@
+{
+  "name": "ImboniX",
+  "description": "AI-Powered Smart Glasses for Accessibility - Real-time Object Detection, Captioning, and Computer Vision",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
