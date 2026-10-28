@@ -96,8 +96,10 @@ export function VoiceProvider({ children }: { children: React.ReactNode }) {
 
       rec.onerror = (err: any) => {
         console.error("[ImboniX Voice] Recognition error:", err?.error || err);
-        if (err?.error === "not-allowed") {
-          console.error("[ImboniX Voice] Microphone permission denied by user/browser");
+        if (err?.error === "not-allowed" || err?.error === "service-not-allowed" || err?.error === "audio-capture") {
+          console.error("[ImboniX Voice] Microphone unavailable or permission denied:", err.error);
+          // Stop the onend auto-restart, otherwise it retries in a tight loop forever.
+          stoppedRef.current = true;
           setSupported(false);
         } else if (err?.error === "no-speech") {
           console.log("[ImboniX Voice] No speech detected, will restart on next onend");

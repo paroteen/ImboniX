@@ -13,7 +13,7 @@ import {
   parseThreatAssessment,
   type ActionType,
   type UserContext,
-} from "./imbonix-core";
+} from "./imbonix-core.js"; // .js required for Node ESM on Vercel (see api/index.ts)
 
 dotenv.config();
 

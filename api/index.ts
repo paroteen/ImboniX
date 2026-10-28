@@ -3,6 +3,8 @@
  * The vercel.json route maps every /api request here while preserving the
  * original URL, so the app's own /api/* handlers match as usual.
  */
-import app from "../src/server/app";
+// Explicit .js extension: Vercel runs this as unbundled Node ESM ("type": "module"),
+// which cannot resolve extensionless relative imports.
+import app from "../src/server/app.js";
 
 export default app;
